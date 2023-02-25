@@ -1,14 +1,34 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
   home: Ninja_ID(),
 ));
 
-class Ninja_ID extends StatelessWidget {
+class Ninja_ID extends StatefulWidget {
 
+
+
+  @override
+  State<Ninja_ID> createState() => _Ninja_IDState();
+}
+
+class _Ninja_IDState extends State<Ninja_ID> {
+
+  int ninja_level = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            ninja_level += 1;
+          });
+        },
+        child: Icon(CupertinoIcons.plus),
+        backgroundColor: Colors.grey[800],
+      ),
 
       backgroundColor: Colors.grey[900],
 
@@ -50,7 +70,8 @@ class Ninja_ID extends StatelessWidget {
                  letterSpacing: 2.0,
                fontSize: 28.0,
                fontWeight: FontWeight.bold
-             ),),
+             ),
+           ),
 
            SizedBox(height : 30.0),
 
@@ -60,8 +81,8 @@ class Ninja_ID extends StatelessWidget {
                  letterSpacing: 2.0
              ),),
 
-           const Text('8',
-             style: TextStyle(
+            Text('$ninja_level',
+             style: const TextStyle(
                  color: Colors.yellowAccent,
                  letterSpacing: 2.0,
                  fontSize: 28.0,
